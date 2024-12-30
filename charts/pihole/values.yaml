@@ -258,7 +258,13 @@ topologySpreadConstraints: []
 #   whenUnsatisfiable: <string>
 #   labelSelector: <object>
 
-affinity: {}
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchLabels:
+          app: pihole  # Target "my-app" pods
+      topologyKey: "kubernetes.io/hostname"  # Ensures pods are on different nodes
 
 # -- Administrator password when not using an existing secret (see below)
 adminPassword: "admin"
