@@ -1,3 +1,5 @@
 /values.yaml
 **/node_modules/
 .cr-release-packages/
+
+.idea/
