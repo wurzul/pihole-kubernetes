@@ -28,7 +28,7 @@ dualStack:
 
 dnsHostPort:
   # -- set this to true to enable dnsHostPort
-  enabled: true
+  enabled: false
   # -- default port for this pod
   port: 53
 
@@ -66,7 +66,7 @@ serviceDns:
 # -- Configuration for the DHCP service on port 67
 serviceDhcp:
   # -- Generate a Service resource for DHCP traffic
-  enabled: false
+  enabled: true
 
   # -- `spec.type` for the DHCP Service
   type: NodePort
