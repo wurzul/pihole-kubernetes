@@ -28,7 +28,7 @@ dualStack:
 
 dnsHostPort:
   # -- set this to true to enable dnsHostPort
-  enabled: false
+  enabled: true
   # -- default port for this pod
   port: 53
 
@@ -66,7 +66,7 @@ serviceDns:
 # -- Configuration for the DHCP service on port 67
 serviceDhcp:
   # -- Generate a Service resource for DHCP traffic
-  enabled: true
+  enabled: false
 
   # -- `spec.type` for the DHCP Service
   type: NodePort
@@ -258,13 +258,7 @@ topologySpreadConstraints: []
 #   whenUnsatisfiable: <string>
 #   labelSelector: <object>
 
-affinity:
-  podAntiAffinity:
-    preferredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchLabels:
-          app: pihole  # Target "my-app" pods
-      topologyKey: "kubernetes.io/hostname"  # Ensures pods are on different nodes
+affinity: {}
 
 # -- Administrator password when not using an existing secret (see below)
 adminPassword: "admin"
