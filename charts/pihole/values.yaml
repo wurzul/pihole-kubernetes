@@ -260,7 +260,7 @@ topologySpreadConstraints: []
 
 affinity:
   podAntiAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
+    preferredDuringSchedulingIgnoredDuringExecution:
     - labelSelector:
         matchLabels:
           app: pihole  # Target "my-app" pods
