@@ -551,3 +551,15 @@ podDisruptionBudget:
   minAvailable: 1
   # -- maximum number of pods Kubernetes will allow to be unavailable. Cannot set both `minAvailable` and `maxAvailable`
   # maxUnavailable: 1
+
+serviceTCP:
+  loadBalancerIP: 192.168.1.253
+  annotations:
+    metallb.universe.tf/address-pool: network-services
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+
+serviceUDP:
+  loadBalancerIP: 192.168.1.253
+  annotations:
+    metallb.universe.tf/address-pool: network-services
+    metallb.universe.tf/allow-shared-ip: pihole-svc
