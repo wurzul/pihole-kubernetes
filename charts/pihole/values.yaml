@@ -145,12 +145,12 @@ ingress:
   enabled: true
 
   # -- Specify an ingressClassName
-  # ingressClassName: nginx
+  ingressClassName: nginx
 
   # -- Annotations for the ingress
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
   path: /
   pathType: ImplementationSpecific
   hosts:
