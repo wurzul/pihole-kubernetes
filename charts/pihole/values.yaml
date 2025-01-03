@@ -142,7 +142,7 @@ virtualHost: pi.hole
 # -- Configuration for the Ingress
 ingress:
   # -- Generate a Ingress resource
-  enabled: false
+  enabled: true
 
   # -- Specify an ingressClassName
   # ingressClassName: nginx
