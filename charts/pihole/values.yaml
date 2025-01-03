@@ -28,7 +28,7 @@ dualStack:
 
 dnsHostPort:
   # -- set this to true to enable dnsHostPort
-  enabled: false
+  enabled: true
   # -- default port for this pod
   port: 53
 
@@ -142,7 +142,7 @@ virtualHost: pi.hole
 # -- Configuration for the Ingress
 ingress:
   # -- Generate a Ingress resource
-  enabled: true
+  enabled: false
 
   # -- Specify an ingressClassName
   # ingressClassName: nginx
