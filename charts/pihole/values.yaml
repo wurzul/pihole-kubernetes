@@ -28,7 +28,7 @@ dualStack:
 
 dnsHostPort:
   # -- set this to true to enable dnsHostPort
-  enabled: true
+  enabled: false
   # -- default port for this pod
   port: 53
 
@@ -66,7 +66,7 @@ serviceDns:
 # -- Configuration for the DHCP service on port 67
 serviceDhcp:
   # -- Generate a Service resource for DHCP traffic
-  enabled: false
+  enabled: true
 
   # -- `spec.type` for the DHCP Service
   type: NodePort
@@ -142,15 +142,15 @@ virtualHost: pi.hole
 # -- Configuration for the Ingress
 ingress:
   # -- Generate a Ingress resource
-  enabled: true
+  enabled: false
 
   # -- Specify an ingressClassName
-  ingressClassName: nginx
+  # ingressClassName: nginx
 
   # -- Annotations for the ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
   path: /
   pathType: ImplementationSpecific
   hosts:
@@ -551,17 +551,3 @@ podDisruptionBudget:
   minAvailable: 1
   # -- maximum number of pods Kubernetes will allow to be unavailable. Cannot set both `minAvailable` and `maxAvailable`
   # maxUnavailable: 1
-
-serviceTCP:
-  enabled: true
-  loadBalancerIP: 192.168.1.253
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
-
-serviceUDP:
-  loadBalancerIP: 192.168.1.253
-  enabled: true
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
