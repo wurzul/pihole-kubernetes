@@ -33,35 +33,35 @@ dnsHostPort:
   port: 53
 
 # -- Configuration for the DNS service on port 53
-#serviceDns:
-#  # -- deploys a mixed (TCP + UDP) Service instead of separate ones
-#  mixedService: false
-#
-#  # -- `spec.type` for the DNS Service
-#  type: NodePort
-#
-#  # -- The port of the DNS service
-#  port: 53
-#
-#  # -- Optional node port for the DNS service
-#  nodePort: ""
-#
-#  # -- `spec.externalTrafficPolicy` for the DHCP Service
-#  externalTrafficPolicy: Local
-#
-#  # -- A fixed `spec.loadBalancerIP` for the DNS Service
-#  loadBalancerIP: ""
-#  # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
-#  loadBalancerIPv6: ""
-#
-#  # -- Annotations for the DNS service
-#  annotations: {}
-#    # metallb.universe.tf/address-pool: network-services
-#    # metallb.universe.tf/allow-shared-ip: pihole-svc
-#
-#  # -- Labels for the DNS service
-#  extraLabels:
-#    {}
+serviceDns:
+  # -- deploys a mixed (TCP + UDP) Service instead of separate ones
+  mixedService: false
+
+  # -- `spec.type` for the DNS Service
+  type: NodePort
+
+  # -- The port of the DNS service
+  port: 53
+
+  # -- Optional node port for the DNS service
+  nodePort: ""
+
+  # -- `spec.externalTrafficPolicy` for the DHCP Service
+  externalTrafficPolicy: Local
+
+  # -- A fixed `spec.loadBalancerIP` for the DNS Service
+  loadBalancerIP: ""
+  # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
+  loadBalancerIPv6: ""
+
+  # -- Annotations for the DNS service
+  annotations: {}
+    # metallb.universe.tf/address-pool: network-services
+    # metallb.universe.tf/allow-shared-ip: pihole-svc
+
+  # -- Labels for the DNS service
+  extraLabels:
+    {}
 
 # -- Configuration for the DHCP service on port 67
 serviceDhcp:
@@ -94,28 +94,28 @@ serviceDhcp:
     {}
 
 # -- Configuration for the web interface service
-#serviceWeb:
-#  # -- Configuration for the HTTP web interface listener
-#  http:
-#    # -- Generate a service for HTTP traffic
-#    enabled: true
-#
-#    # -- The port of the web HTTP service
-#    port: 80
-#
-#    # -- Optional node port for the web HTTP service
-#    nodePort: ""
-#
-#  # -- Configuration for the HTTPS web interface listener
-#  https:
-#    # -- Generate a service for HTTPS traffic
-#    enabled: true
-#
-#    # -- The port of the web HTTPS service
-#    port: 443
-#
-#    # -- Optional node port for the web HTTPS service
-#    nodePort: ""
+serviceWeb:
+  # -- Configuration for the HTTP web interface listener
+  http:
+    # -- Generate a service for HTTP traffic
+    enabled: true
+
+    # -- The port of the web HTTP service
+    port: 80
+
+    # -- Optional node port for the web HTTP service
+    nodePort: ""
+
+  # -- Configuration for the HTTPS web interface listener
+  https:
+    # -- Generate a service for HTTPS traffic
+    enabled: true
+
+    # -- The port of the web HTTPS service
+    port: 443
+
+    # -- Optional node port for the web HTTPS service
+    nodePort: ""
 
   # -- `spec.type` for the web interface Service
   type: ClusterIP
@@ -551,15 +551,3 @@ podDisruptionBudget:
   minAvailable: 1
   # -- maximum number of pods Kubernetes will allow to be unavailable. Cannot set both `minAvailable` and `maxAvailable`
   # maxUnavailable: 1
-
-serviceWeb:
-  loadBalancerIP: 192.168.1.252
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
-
-serviceDns:
-  loadBalancerIP: 192.168.1.252
-  annotations:
-    metallb.universe.tf/allow-shared-ip: pihole-svc
-  type: LoadBalancer
