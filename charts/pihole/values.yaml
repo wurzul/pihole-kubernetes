@@ -33,35 +33,35 @@ dnsHostPort:
   port: 53
 
 # -- Configuration for the DNS service on port 53
-serviceDns:
-  # -- deploys a mixed (TCP + UDP) Service instead of separate ones
-  mixedService: false
-
-  # -- `spec.type` for the DNS Service
-  type: NodePort
-
-  # -- The port of the DNS service
-  port: 53
-
-  # -- Optional node port for the DNS service
-  nodePort: ""
-
-  # -- `spec.externalTrafficPolicy` for the DHCP Service
-  externalTrafficPolicy: Local
-
-  # -- A fixed `spec.loadBalancerIP` for the DNS Service
-  loadBalancerIP: ""
-  # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
-  loadBalancerIPv6: ""
-
-  # -- Annotations for the DNS service
-  annotations: {}
-    # metallb.universe.tf/address-pool: network-services
-    # metallb.universe.tf/allow-shared-ip: pihole-svc
-
-  # -- Labels for the DNS service
-  extraLabels:
-    {}
+#serviceDns:
+#  # -- deploys a mixed (TCP + UDP) Service instead of separate ones
+#  mixedService: false
+#
+#  # -- `spec.type` for the DNS Service
+#  type: NodePort
+#
+#  # -- The port of the DNS service
+#  port: 53
+#
+#  # -- Optional node port for the DNS service
+#  nodePort: ""
+#
+#  # -- `spec.externalTrafficPolicy` for the DHCP Service
+#  externalTrafficPolicy: Local
+#
+#  # -- A fixed `spec.loadBalancerIP` for the DNS Service
+#  loadBalancerIP: ""
+#  # -- A fixed `spec.loadBalancerIP` for the IPv6 DNS Service
+#  loadBalancerIPv6: ""
+#
+#  # -- Annotations for the DNS service
+#  annotations: {}
+#    # metallb.universe.tf/address-pool: network-services
+#    # metallb.universe.tf/allow-shared-ip: pihole-svc
+#
+#  # -- Labels for the DNS service
+#  extraLabels:
+#    {}
 
 # -- Configuration for the DHCP service on port 67
 serviceDhcp:
